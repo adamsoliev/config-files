@@ -62,10 +62,14 @@ parse_git_branch() {
 
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\u\[\033[1;35m\] \w$\[\033[00m\] '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\u\[\033[1;35m\]\w\[\033[1;31m\] $(parse_git_branch)\[\033[00m\]\$ '
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\u\[\033[1;35m\]\w\[\033[1;31m\] $(parse_git_branch)\[\033[00m\]\$ '
+    # PS1='\[\033[1;32m\]\u\[\033[1;35m\]\w\[\033[1;31m\]$(parse_git_branch)\$\[\033[00m\] '
+    PS1='\[\033[1;35m\]\W\[\033[00m\]$(parse_git_branch)\$ '
+    
 else
     # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)\$ '
+    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\u\[\033[1;35m\]\w\[\033[1;31m\] $(parse_git_branch)\[\033[00m\]\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -121,3 +125,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
