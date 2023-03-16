@@ -1,4 +1,8 @@
-set nocompatible   " Disable vi-compatibility
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+filetype plugin indent on    " required
+
 set t_Co=256
 
 packloadall
@@ -33,6 +37,8 @@ set timeout timeoutlen=200 ttimeoutlen=100
 set autowrite  "Save on buffer switch
 set mouse=a
 
+set tw=79 " automatic text wrap at 79 
+
 " open terminal below all splits
 cabbrev bterm bo term
 
@@ -56,12 +62,6 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-
-"Resize vsplit
-nmap <C-v> :vertical resize +5<cr>
-nmap 25 :vertical resize 40<cr>
-nmap 50 <c-w>=
-nmap 75 :vertical resize 120<cr>
 
 nmap <C-b> :NERDTreeToggle<cr>
 
@@ -108,7 +108,7 @@ autocmd FileType apache setlocal commentstring=#\ %s
 
 
 filetype indent plugin on
-
+ 
 function! Formatonsave()
   let l:formatdiff = 1
   py3f /usr/share/vim/addons/syntax/clang-format.py
