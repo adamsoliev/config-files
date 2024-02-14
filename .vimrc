@@ -1,27 +1,10 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
 " maps regular Ctrl to Mac's control key
 noremap <D-/> <C-/>
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugin 'Chiel92/vim-autoformat'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
 set t_Co=256
 
-packloadall
 set background=dark
 syntax enable
 
@@ -79,8 +62,6 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-nmap <C-b> :NERDTreeToggle<cr>
-
 "Show (partial) command in the status line
 set showcmd
 
@@ -114,41 +95,34 @@ autocmd cursormoved * set hlsearch
 command! H let @/=""
 
 " Folding
-function! MyFoldText()
-    let indent_level = indent(v:foldstart)
-    let indent = repeat(' ', indent_level)
-    let nblines = v:foldend - v:foldstart + 1
-    let txt = '---' . nblines . '---'
-    return indent . txt
-endfunction
-set foldtext=MyFoldText()
+" function! MyFoldText()
+"     let indent_level = indent(v:foldstart)
+"     let indent = repeat(' ', indent_level)
+"     let nblines = v:foldend - v:foldstart + 1
+"     let txt = '---' . nblines . '---'
+"     return indent . txt
+" endfunction
+" set foldtext=MyFoldText()
 
-set fcs=fold:\ ,vert:\| " remove 'fillchars' in fold
+" set fcs=fold:\ ,vert:\| " remove 'fillchars' in fold
 " change folded line background
-highlight Folded ctermbg=52   
+" highlight Folded ctermbg=52   
 
 " open all folds when opening a file 
-autocmd Syntax c,cpp,vim,xml,html,xhtml,py,java setlocal foldmethod=indent
-autocmd Syntax c,cpp,vim,xml,html,xhtml,py,java normal zR 
+" autocmd Syntax c,cpp,vim,xml,html,xhtml,py,java setlocal foldmethod=indent
+" autocmd Syntax c,cpp,vim,xml,html,xhtml,py,java normal zR 
 
 " toggle a given fold
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+" vnoremap <Space> zf
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " comment plugin command "
-autocmd FileType apache setlocal commentstring=#\ %s
-
-" CODE FORMAT
-function! Formatonsave()
-  let l:formatdiff = 1
-  py3f /usr/share/vim/addons/syntax/clang-format.py
-endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+" autocmd FileType apache setlocal commentstring=#\ %s
 
 
