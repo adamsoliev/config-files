@@ -38,14 +38,6 @@ set mouse=a
 
 set tw=79 " automatic text wrap at 79 
 
-" open terminal below all splits
-cabbrev bterm bo term
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
-
 " Fast saves
 nmap <leader>w :w!<cr>
 
@@ -65,19 +57,11 @@ nmap <C-l> <C-w>l
 "Show (partial) command in the status line
 set showcmd
 
-" Create split below
-nmap :sp :rightbelow sp<cr>
-
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
 nmap :bn :BufSurfForward<cr>
 
 highlight Search cterm=underline
-
-" Swap files out of the project root
-set backupdir=~/.vim/backup/
-set directory=~/.vim/swap/
-
 
 " Easy motion stuff
 let g:EasyMotion_leader_key = '<Leader>'
@@ -93,36 +77,3 @@ autocmd cursormoved * set hlsearch
 
 " Remove search results
 command! H let @/=""
-
-" Folding
-" function! MyFoldText()
-"     let indent_level = indent(v:foldstart)
-"     let indent = repeat(' ', indent_level)
-"     let nblines = v:foldend - v:foldstart + 1
-"     let txt = '---' . nblines . '---'
-"     return indent . txt
-" endfunction
-" set foldtext=MyFoldText()
-
-" set fcs=fold:\ ,vert:\| " remove 'fillchars' in fold
-" change folded line background
-" highlight Folded ctermbg=52   
-
-" open all folds when opening a file 
-" autocmd Syntax c,cpp,vim,xml,html,xhtml,py,java setlocal foldmethod=indent
-" autocmd Syntax c,cpp,vim,xml,html,xhtml,py,java normal zR 
-
-" toggle a given fold
-" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-" vnoremap <Space> zf
-
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" comment plugin command "
-" autocmd FileType apache setlocal commentstring=#\ %s
-
-
