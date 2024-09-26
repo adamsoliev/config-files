@@ -162,4 +162,9 @@
         "command": "extension.vim_ctrl+v",
         "when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
     },
+    // -- switch between terminals -- 
+    /*
+        Move to previous terminal - Ctrl+PageUp (macOS Cmd+Shift+])
+        Move to next terminal - Ctrl+PageDown (macOS Cmd+shift+[)
+    */
 ]
