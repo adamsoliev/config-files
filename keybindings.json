@@ -1,97 +1,165 @@
-// VSCODE custom keybindings
-// Place your key bindings in this file to override the defaults
+// VSCODE custom keybindings for Mac
 [
+    // -- create dir and file in explorer
     {
-        "key": "alt+2",
-        "command": "workbench.action.terminal.toggleTerminal",
-        "when": "terminal.active"
-    },
-    {
-        "key": "ctrl+`",
-        "command": "-workbench.action.terminal.toggleTerminal",
-        "when": "terminal.active"
-    },
-    {
-        "key": "ctrl+right",
-        "command": "workbench.action.nextEditor"
-    },
-    {
-        "key": "ctrl+left",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "ctrl+n",
+        "key": "cmd+n",
         "command": "explorer.newFile",
-        // "when": "explorerViewletFocus"
+        "when": "explorerViewletFocus"
     },
     {
-        "key": "ctrl+shift+n",
+        "key": "cmd+shift+n",
         "command": "explorer.newFolder",
-        // "when": "explorerViewletFocus"
+        "when": "explorerViewletFocus"
+    },
+    // -- navigate back --
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "ctrl+w",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "ctrl+w",
-        "command": "-extension.vim_ctrl+w",
-        "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+0",
-        "command": "-workbench.action.focusSideBar"
-    },
-    {
-        "key": "alt+1",
-        // "key": "ctrl+b",
-        "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
-    },
-    {
-        // "key": "ctrl+b",
-        "key": "alt+1",
-        "command": "workbench.action.closeSidebar",
-        "when": "sideBarVisible"
-    },
-    {
-        "key": "ctrl+b",
+        "key": "cmd+b",
         "command": "workbench.action.navigateBack",
         "when": "canNavigateBack"
     },
+    // -- navigate forward --
     {
-        "key": "ctrl+alt+-",
-        "command": "-workbench.action.navigateBack",
-        "when": "canNavigateBack"
+        "key": "cmd+g",
+        "command": "-workbench.action.terminal.findNext",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+    },
+    {
+        "key": "cmd+g",
+        "command": "-workbench.action.terminal.goToRecentDirectory",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "cmd+g",
+        "command": "-editor.action.nextMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+g",
+        "command": "-editor.action.simpleInlineDiffs.acceptAll",
+        "when": "editorTextFocus && hasDisplayedSimpleDiff"
     },
     {
         "key": "ctrl+g",
         "command": "workbench.action.navigateForward",
         "when": "canNavigateForward"
     },
+    // -- fold all --
     {
-        "key": "ctrl+shift+-",
-        "command": "-workbench.action.navigateForward",
-        "when": "canNavigateForward"
-    },
-    {
-        "key": "ctrl+shift+9",
-        "command": "editor.foldAll",
-        "when": "editorTextFocus && foldingEnabled"
-    },
-    {
-        "key": "ctrl+k ctrl+0",
+        "key": "cmd+r cmd+0",
         "command": "-editor.foldAll",
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "ctrl+shift+0",
-        "command": "editor.unfoldAll",
+        "key": "cmd+3",
+        "command": "editor.foldAll",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    // -- unfold all --
+    {
+        "key": "cmd+r cmd+j",
+        "command": "-editor.unfoldAll",
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "ctrl+k ctrl+j",
-        "command": "-editor.unfoldAll",
+        "key": "cmd+4",
+        "command": "editor.unfoldAll",
         "when": "editorTextFocus && foldingEnabled"
-    }
+    },
+    // -- move between tabs --
+    {
+        "key": "cmd+right",
+        "command": "-workbench.action.terminal.sendSequence",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+right",
+        "command": "-quickInput.acceptInBackground",
+        "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
+    },
+    {
+        "key": "cmd+right",
+        "command": "-cursorEnd",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+right",
+        "command": "-editor.action.inlineSuggest.acceptNextWord",
+        "when": "cppSuggestion && !editorReadonly || inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "cmd+right",
+        "command": "-extension.vim_cmd+right",
+        "when": "editorTextFocus && vim.active && vim.use<D-right> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "cmd+right",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "cmd+left",
+        "command": "workbench.action.previousEditor"
+    },
+    // -- left-sidebar explorer visibility-and-focus toggle --
+    {
+        "key": "cmd+1",
+        "command": "-workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "cmd+1",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                    "workbench.action.toggleSidebarVisibility",
+                    "workbench.view.explorer",
+             ],
+             "when": "!sideBarVisible"
+        }
+    },
+    {
+        /* when it closes, it goes to a file that is under the focus on the explorer */
+        "key": "cmd+1",
+        "command": "workbench.action.closeSidebar",
+        "when": "sideBarVisible"
+    },
+    // -- terminal --
+    {
+        "key": "cmd+2",
+        "command": "-workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "cmd+2",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // -- enter - open dir; cmd+enter - rename;
+    {
+        "key": "cmd+enter",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "enter",
+        "command": "-renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "enter",
+        "command": "list.select",
+        "when": "listFocus && !inputFocus"
+    },
+    // -- vim vertical select --
+    {
+        "key": "ctrl+v",
+        "command": "-extension.vim_ctrl+v",
+        "when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
+    },
+    {
+        "key": "cmd+5",
+        "command": "extension.vim_ctrl+v",
+        "when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
+    },
 ]
