@@ -76,15 +76,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/opt/homebrew/bin:$PATH"
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# Visual Studio Code
-export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-
-# bc of 'WARNING: The script normalizer is installed in # '/Users/adamsoliev/Library/Python/3.9/bin' which is not on PATH.'
-# export PATH="/Users/adamsoliev/Library/Python/3.9/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -110,12 +102,16 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias srczsh="source ~/.zshrc"
+
 alias clang-format="/opt/homebrew/opt/llvm/bin/clang-format"
 alias du='du -h'
+
+# Grep
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv,build,target}'
 alias cgrep="grep -r -i -B 5 -A 5 "
 alias rgrep='rg'
 
+# Git
 alias ga='git add '
 alias gcmsg='git commit -m '
 alias gp='git push '
@@ -125,10 +121,10 @@ alias gd='git diff '
 alias gr='git restore '
 alias gco='git checkout '
 alias gbdlocal="git fetch --prune; git branch -vv | grep 'gone]' | awk '{print $1}' | xargs git branch -D"
-alias postgresql="psql -h 5.78.92.151 -d mydatabase -U adamsoliev -p 5432" # password123
+
+# AI CLI
 alias updateclaude='claude update'
 alias updategemini='npm install -g @google/gemini-cli@latest'
-
 
 # alias ohmyzsh="mate ~/.oh-my-zsh" 
 
@@ -195,16 +191,9 @@ alias countloc='function _countloc() {
 }; _countloc'
 
 
-# bun completions
-[ -s "/Users/adamsoliev/.bun/_bun" ] && source "/Users/adamsoliev/.bun/_bun"
-
-# bun
+# Bun
+[ -s "/Users/adamsoliev/.bun/_bun" ] && source "/Users/adamsoliev/.bun/_bun"  # completions
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# Load environment variables from .env file
-if [ -f ~/.env ]; then
-  source ~/.env
-fi
 
 # CAVEATS of brew install llvm 
 # ==> llvm
@@ -239,6 +228,9 @@ fi
 # For compilers to find llvm you may need to set:
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$PATH"
