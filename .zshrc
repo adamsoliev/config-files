@@ -234,3 +234,8 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Load environment variables from .env file
+if [ -f ~/.env ]; then
+  source ~/.env
+fi
