@@ -128,6 +128,8 @@ alias updategemini='npm install -g @google/gemini-cli@latest'
 
 # alias ohmyzsh="mate ~/.oh-my-zsh" 
 
+alias dots="~/Development/dotfiles/sync.sh"
+
 alias cf='function _clangf() {
   # ---------- extensions ----------
   local exts=("$@")
