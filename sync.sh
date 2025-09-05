@@ -1,7 +1,14 @@
 #!/bin/bash
 set -e
 
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ORIGINAL_DIR="$(pwd)"
+
 echo "Syncing dotfiles from home directory..."
+
+# Change to the dotfiles repo directory
+cd "$SCRIPT_DIR"
 
 # Copy dotfiles to repo
 cp ~/.zshrc .zshrc
@@ -21,4 +28,6 @@ git commit -m "Update dotfiles $(date '+%Y-%m-%d %H:%M')"
 git push
 
 echo "Dotfiles synced and pushed to git"
+
+cd "$ORIGINAL_DIR"
 
