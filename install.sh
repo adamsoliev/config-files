@@ -20,5 +20,8 @@ echo "Installing dotfiles..."
 cp .zshrc ~/
 cp .vimrc ~/
 
+# Ensure ZSH theme is set to "evan" after installation
+sed -i '' 's/^ZSH_THEME=".*"/ZSH_THEME="evan"/' ~/.zshrc
+
 echo "Setup complete!"
 echo "Run 'source ~/.zshrc' to reload shell configuration"

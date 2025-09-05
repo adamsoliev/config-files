@@ -7,6 +7,9 @@ echo "Syncing dotfiles from home directory..."
 cp ~/.zshrc .zshrc
 cp ~/.vimrc .vimrc
 
+# Ensure ZSH theme is always set to "evan" in the repo
+sed -i '' 's/^ZSH_THEME=".*"/ZSH_THEME="evan"/' .zshrc
+
 # Commit and push changes
 git add .zshrc .vimrc
 if git diff --quiet --cached; then
