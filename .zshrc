@@ -110,12 +110,6 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias srczsh="source ~/.zshrc"
-alias docean="ssh root@146.190.77.140"
-alias dell="ssh adam@192.168.1.248"
-# alias aws='ssh -i "/Users/adamsoliev/Documents/aws/adam_aws_instance.pem" ubuntu@ec2-3-17-37-8.us-east-2.compute.amazonaws.com'
-# alias aws='ssh -i "/Users/adamsoliev/Documents/aws/adam_aws_instance.pem" ec2-user@ec2-3-15-3-122.us-east-2.compute.amazonaws.com'
-alias aws='ssh -i "/Users/adamsoliev/Documents/aws/adam_aws_instance.pem" ubuntu@ec2-3-19-142-91.us-east-2.compute.amazonaws.com'
-alias hetz='ssh root@5.78.92.151' # NxcA7LbkTMbP
 alias clang-format="/opt/homebrew/Cellar/llvm/20.1.4/bin/clang-format"
 alias du='du -h'
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv,build,target}'
