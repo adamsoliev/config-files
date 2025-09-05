@@ -241,3 +241,27 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 if [ -f ~/.env ]; then
   source ~/.env
 fi
+
+
+# screen session manager
+s() {
+      local session_name="${1:-main}"
+
+      if screen -list | grep -q "$session_name"; then
+          echo " Resuming session: $session_name"
+          screen -r "$session_name"
+      else
+          echo " Starting new session: $session_name"
+          screen -S "$session_name"
+      fi
+}
+
+# manual flow
+#   screen -S benchmark # start screen sessions
+#   Press Ctrl+A, then D to detach
+#   screen -r benchmark # reconnect later
+
+alias sl='screen -ls'           # screen list
+alias sk='screen -S $1 -X quit' # screen kill
+# alias sd='screen -d'            # screen detach all
+
