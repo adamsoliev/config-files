@@ -110,11 +110,11 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias srczsh="source ~/.zshrc"
-alias clang-format="/opt/homebrew/Cellar/llvm/20.1.4/bin/clang-format"
+alias clang-format="/opt/homebrew/opt/llvm/bin/clang-format"
 alias du='du -h'
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv,build,target}'
 alias cgrep="grep -r -i -B 5 -A 5 "
-alias rgrep='/opt/homebrew/opt/ripgrep/bin/rg'
+alias rgrep='rg'
 
 alias ga='git add '
 alias gcmsg='git commit -m '
