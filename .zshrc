@@ -242,7 +242,6 @@ if [ -f ~/.env ]; then
   source ~/.env
 fi
 
-
 # screen session manager
 s() {
       local session_name="${1:-main}"
@@ -263,5 +262,4 @@ s() {
 
 alias sl='screen -ls'           # screen list
 alias sk='screen -S $1 -X quit' # screen kill
-# alias sd='screen -d'            # screen detach all
 
