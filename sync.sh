@@ -21,3 +21,4 @@ git commit -m "Update dotfiles $(date '+%Y-%m-%d %H:%M')"
 git push
 
 echo "Dotfiles synced and pushed to git"
+
