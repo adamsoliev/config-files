@@ -12,10 +12,5 @@ source ~/.zshrc
 ## Update Dotfiles (from laptop)
 ```bash
 # After editing ~/.zshrc or ~/.vimrc
-./sync.sh
-```
-
-Or add alias to ~/.zshrc:
-```bash
-alias dots="~/Development/dotfiles/sync.sh"
+dots
 ```
