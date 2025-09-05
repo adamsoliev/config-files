@@ -1,0 +1,250 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+# plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export PATH="/opt/homebrew/bin:$PATH"
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# Visual Studio Code
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
+# bc of 'WARNING: The script normalizer is installed in # '/Users/adamsoliev/Library/Python/3.9/bin' which is not on PATH.'
+# export PATH="/Users/adamsoliev/Library/Python/3.9/bin:$PATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias zshconfig="vim ~/.zshrc"
+alias srczsh="source ~/.zshrc"
+alias docean="ssh root@146.190.77.140"
+alias dell="ssh adam@192.168.1.248"
+# alias aws='ssh -i "/Users/adamsoliev/Documents/aws/adam_aws_instance.pem" ubuntu@ec2-3-17-37-8.us-east-2.compute.amazonaws.com'
+# alias aws='ssh -i "/Users/adamsoliev/Documents/aws/adam_aws_instance.pem" ec2-user@ec2-3-15-3-122.us-east-2.compute.amazonaws.com'
+alias aws='ssh -i "/Users/adamsoliev/Documents/aws/adam_aws_instance.pem" ubuntu@ec2-3-19-142-91.us-east-2.compute.amazonaws.com'
+alias hetz='ssh root@5.78.92.151' # NxcA7LbkTMbP
+alias clang-format="/opt/homebrew/Cellar/llvm/20.1.4/bin/clang-format"
+alias du='du -h'
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv,build,target}'
+alias cgrep="grep -r -i -B 5 -A 5 "
+alias rgrep='/opt/homebrew/opt/ripgrep/bin/rg'
+
+alias ga='git add '
+alias gcmsg='git commit -m '
+alias gp='git push '
+alias gl='git pull '
+alias gst='git status '
+alias gd='git diff '
+alias gr='git restore '
+alias gco='git checkout '
+alias gbdlocal="git fetch --prune; git branch -vv | grep 'gone]' | awk '{print $1}' | xargs git branch -D"
+alias postgresql="psql -h 5.78.92.151 -d mydatabase -U adamsoliev -p 5432" # password123
+alias updateclaude='claude update'
+alias updategemini='npm install -g @google/gemini-cli@latest'
+
+
+# alias ohmyzsh="mate ~/.oh-my-zsh" 
+
+alias cf='function _clangf() {
+  # ---------- extensions ----------
+  local exts=("$@")
+  if [ ${#exts[@]} -eq 0 ]; then           # default set
+    exts=(c h cc cpp cxx c++ hh hpp hxx h++ cppm ixx txx tpp)
+  fi
+
+  # ---------- build the find filter safely ----------
+  local args=()
+  for ext in "${exts[@]}"; do
+    [[ ${#args[@]} -gt 0 ]] && args+=(-o)
+    args+=(-iname "*.${ext#.}")            # strip leading dot if given
+  done
+
+  # ---------- run clang‑format ----------
+  find . \( "${args[@]}" \) -print0 |
+    xargs -0 /opt/homebrew/Cellar/llvm/20.1.4/bin/clang-format -i
+}; _clangf'
+
+
+alias countloc='function _countloc() {
+  if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+    echo "Usage: countloc [FLAGS] <extensions...>"
+    echo "Example: countloc .cpp .h"
+    echo ""
+    echo "Flags:"
+    echo "  -so, --summary-only   Show only subtotals and total, skip per-file details"
+    echo "  -h,  --help           Show this help message"
+    return
+  fi
+
+  summary_only=0
+  if [ "$1" = "--summary-only" ] || [ "$1" = "-so" ]; then
+    summary_only=1
+    shift
+  fi
+
+  total=0
+  for ext in "$@"; do
+    subtotal=0
+    files=()
+    while IFS= read -r -d "" file; do
+      lines=$(wc -l < "$file")
+      files+=("$file:$lines")
+      subtotal=$((subtotal + lines))
+    done < <(find . -path ./build -prune -o -type f -name "*$ext" -print0)
+
+    if [ $summary_only -eq 0 ]; then
+      echo "== $ext files =="
+      for entry in "${files[@]}"; do
+        file="${entry%%:*}"
+        lines="${entry##*:}"
+        printf "  %-40s %5d\n" "$file" "$lines"
+      done
+    fi
+
+    printf "%-6s subtotal: %d\n\n" "$ext" "$subtotal"
+    total=$((total + subtotal))
+  done
+  echo "Total : $total"
+}; _countloc'
+
+
+# bun completions
+[ -s "/Users/adamsoliev/.bun/_bun" ] && source "/Users/adamsoliev/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# Load environment variables from .env file
+if [ -f ~/.env ]; then
+  source ~/.env
+fi
+
+# CAVEATS of brew install llvm 
+# ==> llvm
+# CLANG_CONFIG_FILE_SYSTEM_DIR: /opt/homebrew/etc/clang
+# CLANG_CONFIG_FILE_USER_DIR:   ~/.config/clang
+# 
+# LLD is now provided in a separate formula:
+#   brew install lld
+# 
+# We plan to build LLVM 20 with `LLVM_ENABLE_EH=OFF`. Please see:
+#   https://github.com/orgs/Homebrew/discussions/5654
+# 
+# Using `clang`, `clang++`, etc., requires a CLT installation at `/Library/Developer/CommandLineTools`.
+# If you don't want to install the CLT, you can write appropriate configuration files pointing to your
+# SDK at ~/.config/clang.
+# 
+# To use the bundled libunwind please use the following LDFLAGS:
+#   LDFLAGS="-L/opt/homebrew/opt/llvm/lib/unwind -lunwind"
+# 
+# To use the bundled libc++ please use the following LDFLAGS:
+#   LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind"
+# 
+# NOTE: You probably want to use the libunwind and libc++ provided by macOS unless you know what you're doing.
+# 
+# llvm is keg-only, which means it was not symlinked into /opt/homebrew,
+# because macOS already provides this software and installing another version in
+# parallel can cause all kinds of trouble.
+# 
+# If you need to have llvm first in your PATH, run:
+#   echo 'export PATH="/opt/homebrew/opt/llvm/bin:$PATH"' >> /Users/adamsoliev/.zshrc
+# 
+# For compilers to find llvm you may need to set:
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

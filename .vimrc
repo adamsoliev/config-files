@@ -1,79 +1,111 @@
-set nocompatible              " be iMproved, required
+call plug#begin()
 
-" maps regular Ctrl to Mac's control key
-noremap <D-/> <C-/>
+" --- Plug ---
+"  https://thevaluable.dev/fzf-vim-integration/
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-set t_Co=256
+call plug#end()
 
-set background=dark
-syntax enable
+" Use Space as the leader key
+let mapleader = " "
 
-colorscheme pablo
-set guifont=menlo\ for\ powerline:h16
-set guioptions-=T " Removes top toolbar
-set guioptions-=r " Removes right hand scroll bar
-set go-=L " Removes left hand scroll bar
-set linespace=15
-set termwinsize=15x0
+" --- Key Mappings ---
+" fzf-related mappings
+" Find Files
+nnoremap <leader>f :Files<CR>
+" Find Git Files
+nnoremap <leader>g :GFiles<CR>
+" RIPGREP to search [pattern] through your files’ content
+nnoremap <leader>r :Rg<CR>
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
 
-set showmode                    " always show what mode we're currently editing in
-set nowrap                      " don't wrap lines
-set tabstop=2                   " a tab is four spaces
-set smarttab
-set tags=tags
-set softtabstop=2               " when hitting <BS>, pretend like a tab is removed, even if spaces
-set expandtab                   " expand tabs by default (overloadable per file type later)
-set shiftwidth=2                " number of spaces to use for autoindenting
-set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
-set backspace=indent,eol,start  " allow backspacing over everything in insert mode
-set autoindent                  " always set autoindenting on
-set copyindent                  " copy the previous indentation on autoindenting
-set relativenumber              " always show line numbers
-set ignorecase                  " ignore case when searching
-set smartcase                   " ignore case if search pattern is all lowercase,
-set smartindent
-set timeout timeoutlen=200 ttimeoutlen=100
-set autowrite  "Save on buffer switch
-set mouse=a
 
-set tw=79 " automatic text wrap at 79 
-
-" Fast saves
-nmap <leader>w :w!<cr>
-
-" Down is really the next line
+" Line navigation respects wrapped lines
 nnoremap j gj
 nnoremap k gk
 
-"Easy escaping to normal model
-imap jj <esc>
 
-"easier window navigation
+" --- General ---
+set nocompatible
+set encoding=utf-8
+set mouse=a
+set background=dark
+set t_Co=256
+syntax enable
+set autowrite
+
+" --- Colorscheme ---
+colorscheme pablo
+
+" --- UI & Appearance ---
+set showmode
+set noshowmode          " Powerline handles mode display
+set showcmd
+set laststatus=2
+set relativenumber
+set nowrap
+set tw=79               " Text width for automatic line breaks
+highlight LineNr ctermfg=yellow
+
+" --- GUI options (ignored in terminal Vim) ---
+set guioptions-=T       " Remove top toolbar
+set guioptions-=r       " Remove right scroll bar
+set go-=L               " Remove left scroll bar
+set linespace=15
+set termwinsize=15x0
+" NOTE: Only applies in GVim or MacVim
+set guifont=menlo\ for\ powerline:h16
+
+" --- Tabs and Indentation ---
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+set copyindent
+set shiftround
+set backspace=indent,eol,start
+
+" --- Searching ---
+set hlsearch
+set ignorecase
+set smartcase
+
+" --- Timings ---
+set timeout
+set timeoutlen=200
+set ttimeoutlen=100
+
+" --- Key Mappings ---
+
+" Save with <leader>w
+nmap <leader>w :w!<CR>
+
+" Easy escape from insert mode
+imap jj <Esc>
+
+" Window navigation with Ctrl
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-"Show (partial) command in the status line
-set showcmd
-
-" Quickly go forward or backward to buffer
-nmap :bp :BufSurfBack<cr>
-nmap :bn :BufSurfForward<cr>
-
-highlight Search cterm=underline
-
-" Easy motion stuff
-let g:EasyMotion_leader_key = '<Leader>'
-
-" Powerline (Fancy thingy at bottom stuff)
-let g:Powerline_symbols = 'fancy'
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
-autocmd cursorhold * set nohlsearch
-autocmd cursormoved * set hlsearch
-
-" Remove search results
+" Clear search highlight
 command! H let @/=""
+
+" Mac-specific key remap (safe to delete if not on MacVim)
+noremap <D-/> <C-/>
+
+" Set a more responsive updatetime
+set updatetime=300
+
+" check one time after 'updatetime' ms of inactivity in normal mode
+set autoread
+au CursorHold * checktime
