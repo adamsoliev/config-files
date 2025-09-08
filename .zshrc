@@ -263,3 +263,9 @@ s() {
 alias sl='screen -ls'           # screen list
 alias sk='screen -S $1 -X quit' # screen kill
 
+# prevents `malloc: nano zone abandoned due to inability to reserve vm space`
+# in some debug builds
+export MallocNanoZone=0
+
+export CMAKE_BUILD_PARALLEL_LEVEL=$(($(sysctl -n hw.ncpu) - 2))
+
