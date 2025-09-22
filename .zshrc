@@ -129,6 +129,7 @@ alias updategemini='npm install -g @google/gemini-cli@latest'
 # alias ohmyzsh="mate ~/.oh-my-zsh" 
 
 # `sudo passwd ubuntu` set password for the default ubuntu user
+# `infocmp -x xterm-ghostty | ssh YOUR-SERVER -- tic -x -` copy Ghostty's terminfo to a remote machine
 alias m='multipass '
 alias mdefault='multipass launch -c 4 -m 4G -d 25G'
 
