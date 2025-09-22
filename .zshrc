@@ -129,6 +129,7 @@ alias updategemini='npm install -g @google/gemini-cli@latest'
 # alias ohmyzsh="mate ~/.oh-my-zsh" 
 
 alias m='multipass '
+alias mdefault='multipass launch -c 4 -m 4G -d 25G'
 
 alias dots="~/Development/dotfiles/sync.sh"
 
