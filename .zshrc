@@ -128,6 +128,7 @@ alias updategemini='npm install -g @google/gemini-cli@latest'
 
 # alias ohmyzsh="mate ~/.oh-my-zsh" 
 
+# `sudo passwd ubuntu` set password for the default ubuntu user
 alias m='multipass '
 alias mdefault='multipass launch -c 4 -m 4G -d 25G'
 
