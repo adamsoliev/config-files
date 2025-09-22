@@ -28,9 +28,7 @@ cp .zshrc ~/
 cp .vimrc ~/
 
 # Ensure ZSH theme is set to "evan" after installation
-# Note: The original 'sed' command with -i '' might not work on Linux.
-# The updated command is more portable.
-sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="evan"/' ~/.zshrc
+sed -i '' 's/^ZSH_THEME=".*"/ZSH_THEME="evan"/' ~/.zshrc
 
 echo "Setup complete!"
 echo "Run 'source ~/.zshrc' to reload shell configuration"
