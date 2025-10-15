@@ -1,3 +1,4 @@
+" Download plug.vim and put it in the "autoload" directory.
 call plug#begin()
 
 " --- Plug ---
